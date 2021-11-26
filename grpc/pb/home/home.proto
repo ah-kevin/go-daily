@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package home;
+
+option go_package = "go-daily/grpc/pb/home;home";
+
+message Home{
+  string home_num = 1;
+}
