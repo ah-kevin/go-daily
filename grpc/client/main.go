@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	pb "go-daily/grpc/pb"
+	pb "go-daily/grpc/pb/person"
 	"google.golang.org/grpc"
 	"log"
 )
@@ -13,17 +13,20 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	client := pb.NewHelloGRPCClient(conn)
+	client := pb.NewSearchServiceClient(conn)
 	defer func(conn *grpc.ClientConn) {
 		err := conn.Close()
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}(conn)
-	req, err := client.SayHi(context.Background(), &pb.Req{Message: "我从客户端来"})
+	res, err := client.Search(context.Background(), &pb.PersonReq{
+		Name: "我是kk",
+		Age:  18,
+	})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
 	}
-	fmt.Println(req.GetMessage())
+	fmt.Println(res)
 
 }
