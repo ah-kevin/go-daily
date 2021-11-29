@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	pb "go-daily/grpc/router_demo/route"
+	pb "go-daily/router_demo/route"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/proto"
 	"io"

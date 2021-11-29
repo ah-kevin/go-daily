@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	pb "go-daily/grpc/router_demo/route"
+	pb "go-daily/router_demo/route"
 	"google.golang.org/grpc"
 	"io"
 	"log"
